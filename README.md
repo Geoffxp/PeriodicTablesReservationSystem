@@ -1,5 +1,11 @@
 # Periodic Tables - A Restaurant Reservation System
 
+This is a full stack web application that is able to create reservations and tables.  
+The data is stored in a database of your choice.  
+The app allows you to set and keep track of the status of each reservation.  
+You can also edit and search for reservations.  
+Refer to the pictures below to see the full functionality of the program
+
 # Dashboard - Web
 
 ![webdash](SCREENSHOTS/DASHBOARD.PNG)
