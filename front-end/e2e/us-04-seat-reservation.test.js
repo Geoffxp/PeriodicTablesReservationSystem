@@ -141,7 +141,7 @@ describe("US-04 - Seat reservation - E2E", () => {
         fullPage: true,
       });
 
-      expect(page.url()).toContain("/reservations/new");
+      expect(page.url()).toContain("/dashboard");
     });
   });
 
@@ -153,8 +153,8 @@ describe("US-04 - Seat reservation - E2E", () => {
         first_name: "Seat",
         last_name: Date.now().toString(10),
         mobile_number: "555-1212",
-        reservation_date: "2035-01-03",
-        reservation_time: "13:45",
+        reservation_date: "2035-01-01",
+        reservation_time: "20:30",
         people: 4,
       });
 
@@ -235,7 +235,7 @@ describe("US-04 - Seat reservation - E2E", () => {
         last_name: Date.now().toString(10),
         mobile_number: "555-1313",
         reservation_date: "2035-01-01",
-        reservation_time: "13:45",
+        reservation_time: "20:30",
         people: 4,
       });
 

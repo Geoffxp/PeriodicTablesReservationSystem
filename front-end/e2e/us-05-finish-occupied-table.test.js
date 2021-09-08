@@ -37,7 +37,7 @@ describe("US-05 - Finish an occupied table - E2E", () => {
         last_name: Date.now().toString(10),
         mobile_number: "555-1313",
         reservation_date: "2035-01-01",
-        reservation_time: "13:45",
+        reservation_time: "20:30",
         people: 4,
       });
 
@@ -57,6 +57,7 @@ describe("US-05 - Finish an occupied table - E2E", () => {
     });
 
     test("clicking finish button and then clicking OK makes that table available", async () => {
+
       await page.screenshot({
         path: ".screenshots/us-05-dashboard-finish-button-before.png",
         fullPage: true,
@@ -79,6 +80,7 @@ describe("US-05 - Finish an occupied table - E2E", () => {
         );
         await dialog.accept();
       });
+
 
       await page.click(finishButtonSelector);
 

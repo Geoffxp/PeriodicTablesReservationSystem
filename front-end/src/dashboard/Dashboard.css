@@ -1,0 +1,31 @@
+.green {
+    color: rgb(20, 158, 20)
+}
+.red {
+    color: red
+}
+div.smol {
+    display: none;
+}
+div.beeg {
+    display: block;
+}
+@media (max-width: 1000px) {
+    div.smol {
+        display: block;
+    }
+    div.beeg {
+        display: none;
+    }
+    main {
+        text-align: center;
+    }
+    div.flex-row {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    div.flex-col {
+        width: 100%;
+    }
+}

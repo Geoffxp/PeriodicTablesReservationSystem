@@ -1,4 +1,5 @@
 import React from "react";
+/* only used in the dashboard, other errors are processed per the component 8/
 
 /**
  * Defines the alert message to render if the specified error is truthy.
