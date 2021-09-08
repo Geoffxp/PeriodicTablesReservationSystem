@@ -125,10 +125,6 @@ function validateUpdate(req, res, next) {
     })
   }
 
-  const newReservation = {
-    ...reservation,
-    ...req.body.data
-  }
   const {
     first_name,
     last_name,
