@@ -21,7 +21,7 @@ export default function ListReservationsJSX({ reservations, reload }) {
                     </div>
                 </div>
             </div>
-            {reservations.map((reservation, index) => <DisplayReservation key={index} reservation={reservation} reload={reload} />)}
+            {reservations.map((reservation) => <DisplayReservation key={reservation.reservation_id} reservation={reservation} reload={reload} />)}
         </>
     )
 }
