@@ -16,10 +16,10 @@ export default function TableForm({ reload }) {
     const formCheck = () => {
         const errorList = []
         if (table.capacity < 1) {
-            errorList.push("Table capacity must be at least 1");
+            errorList.push({error_id: "tableCapacity", message: "Table capacity must be at least 1"});
         }
         if (table.table_name.length < 2) {
-            errorList.push("Table name must be at least 2 characters long");
+            errorList.push({error_id: "tableName", message: "Table name must be at least 2 characters long"});
         }
         return errorList;
     }
@@ -56,8 +56,8 @@ export default function TableForm({ reload }) {
     return (
         <>
             <h1 className="text-center">New Table</h1>
-            {errorDisplay.map((error, index) => {
-                return <div className="alert alert-danger" key={index} style={{display: `${showAlert}`}}>{error}</div>
+            {errorDisplay.map((error) => {
+                return <div className="alert alert-danger" key={error.error_id} style={{display: `${showAlert}`}}>{error.message}</div>
             })}
             <form className="container" onSubmit={submitHandler}>
                 <div className="form-row mb-3">
