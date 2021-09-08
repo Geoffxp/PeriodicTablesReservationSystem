@@ -19,7 +19,7 @@ export default function DisplayTables({ tables, reload }) {
                     </div>
                 </div>
             </div>   
-            {tables.map((table, index) => <DisplayTable  key={index} table={table} reload={reload}/>)}
+            {tables.map((table) => <DisplayTable  key={table.table_id} table={table} reload={reload}/>)}
         </>
     )
 }
