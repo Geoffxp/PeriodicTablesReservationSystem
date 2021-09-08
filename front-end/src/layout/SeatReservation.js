@@ -27,14 +27,14 @@ export default function SeatReservation({ reservations, tables, reload }) {
         const tableToCheck = tables.find((table) => table.table_id === currentTable)
         if (tableToCheck) {
             if (reservation.people > tableToCheck.capacity) {
-                errors.push("This table does not have enough room for this reservation")
+                errors.push({error_id: "capacity", message: "This table does not have enough room for this reservation"})
             }
             if (tableToCheck.reservation_id !== null) {
-                errors.push("This table is already occupied")
+                errors.push({error_id: "occupied", message: "This table is already occupied"})
             }
         }
         if (currentTable === -1) {
-            errors.push("Tables were not loaded, please try again.")
+            errors.push({error_id: "loading", message: "Tables were not loaded, please try again."})
         }
         return errors
     }
@@ -63,7 +63,7 @@ export default function SeatReservation({ reservations, tables, reload }) {
     return (
         <>
             <h1>Seat reservation {params.reservation_id}</h1>
-            {errorDisplay.map((error, index) => <div className="alert alert-danger" key={index} style={{display: `${showAlert}`}}>{error}</div>)}
+            {errorDisplay.map((error) => <div className="alert alert-danger" key={error.error_id} style={{display: `${showAlert}`}}>{error.message}</div>)}
             <form onSubmit={submitHandler}>
                 <div className="d-flex flex-column">
                 <label htmlFor="table_id">Select a table</label>
