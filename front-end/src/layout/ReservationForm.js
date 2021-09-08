@@ -45,13 +45,13 @@ export default function ReservationForm({ reload }) {
         const minutes = dateToCheck.getMinutes();
         const errorList = [];
         if (dateToCheck < todaysDate) {
-            errorList.push("Date must not be in the past!");
+            errorList.push({error_id: "past", message: "Date must not be in the past!"});
         } 
         if (day === 2) {
-            errorList.push("We are closed on Tuesday!");
+            errorList.push({error_id: "tuesday", message: "We are closed on Tuesday!"});
         }
         if (hour < 10 || hour > 21 || (hour === 10 && minutes < 30) || (hour === 21 && minutes > 30)) {
-            errorList.push("Reservation must be between 10:30 AM and 9:30 PM");
+            errorList.push({error_id: "hours", message: "Reservation must be between 10:30 AM and 9:30 PM"});
         }
         return errorList
     }
@@ -97,8 +97,8 @@ export default function ReservationForm({ reload }) {
             {params.reservation_id ? 
             <h1 className="text-center">Edit Reservation</h1> :
             <h1 className="text-center">New Reservation</h1>}
-            {errorDisplay.map((error, index) => {
-                return <div className="alert alert-danger" key={index} style={{display: `${showAlert}`}}>{error}</div>
+            {errorDisplay.map((error) => {
+                return <div className="alert alert-danger" key={error.error_id} style={{display: `${showAlert}`}}>{error.message}</div>
             })}
             <form className="container pt-3" onSubmit={submitHandler}>
                 <div className="form-row">
